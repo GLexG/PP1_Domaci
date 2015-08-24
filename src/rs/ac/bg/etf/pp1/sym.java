@@ -43,7 +43,7 @@ public class sym {
 	public static final int	PPLUS = 33; // ++
 	public static final int	MMINUS = 34; // --
 	public static final int SEMICOMA = 35; // ;
-	public static final int	COMA = 36;	// ,
+	public static final int	COMMA = 36;	// ,
 	public static final int POINT = 37; // .
 	public static final int	LPAREN= 38;
 	public static final int RPAREN = 39;
@@ -53,6 +53,8 @@ public class sym {
 	public static final int RBRACE= 43; 
 	public static final int EOF = 44;	//stigli smo do kraja
 	public static final int ERROR = 45;
+	
+	public static final int BOOLVAL = 46;
 	
 
 }

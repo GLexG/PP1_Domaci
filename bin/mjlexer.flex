@@ -15,7 +15,7 @@ import java_cup.runtime.Symbol;
 	
 	//ukljucivanje informacije o poziciji tokena
 	private Symbol new_symbol(int type,Object value){
-		return new ?Symbol(type,yyline+1,yycolumn,value);
+		return new Symbol(type,yyline+1,yycolumn,value);
 	}
 	
 	
@@ -42,7 +42,7 @@ return new_symbol(sym.eof)
 "\r\n"	{ }
 "\f"	{ }
 
-"program" { return new_symbol(sym.PROGRAM, yytext()); }   -regurlarni izraz, akcija pravljenja tokena yytext()-vraca sekvencu znakova koji su trenutno procitani
+"program" { return new_symbol(sym.PROGRAM, yytext()); }   
 "break"		{ return new_symbol(sym.BREAK, yytext()); }
 "class"	{ return new_symbol(sym.CLASS, yytext()); }
 "else"		{ return new_symbol(sym.ELSE, yytext()); }
@@ -92,8 +92,9 @@ return new_symbol(sym.eof)
 
 <COMMENT> "\r\n" { yybegin(YYINITIAL); } 
 
-{0-9}+ { return new_symbol(sym.NUMBER, new Integer(yytext())); }
-([a-z]|[A-Z])[a-z|A-Z|0-9|_]* { return new_symbol (sym.IDENT, yytext()); }  
+[0-9]+  { return new_symbol(sym.NUMBER, new Integer (yytext())); }
+
+([a-z]|[A-Z])[a-z|A-Z|0-9|_]* 	{return new_symbol (sym.IDENT, yytext()); } 
 
  . { System.err.println("Leksicka greska ("+yytext()+") u liniji "+(yyline+1)); }   
 
