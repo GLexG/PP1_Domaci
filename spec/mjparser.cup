@@ -1,0 +1,21 @@
+
+terminal PROG,IDENT,LBRACE,RBRACE
+non terminal Program, DecList, ConstDecList, VarDecList, ClassDecList, MethodDecList
+
+
+/* DecList ::= ConstDecList | VarDecList | ClassDecList */
+Program ::= PROG IDENT DecList LBRACE MethodDecList RBRACE ;
+
+DecList ::= DecList DeclarationList 
+			|
+			/* epsilon */
+			;
+
+DeclarationList ::= ConstDecList
+					|
+					VarDecList
+					|
+					ClassDecList
+					;
+				
+ConstDecList ::=  const Type IDENT				

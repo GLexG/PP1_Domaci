@@ -1,0 +1,16 @@
+INFO  14:02:07,521 - Compiling source file: C:\Users\Leon\workspace\MJCompiler\test\program.mj
+INFO  14:02:07,527 - #1 program
+INFO  14:02:07,527 - #14 MJProgram
+INFO  14:02:07,527 - #14 int
+INFO  14:02:07,527 - #14 x
+INFO  14:02:07,527 - #36 ,
+INFO  14:02:07,527 - #14 y
+INFO  14:02:07,527 - #35 ;
+INFO  14:02:07,528 - #38 {
+INFO  14:02:07,528 - #11 void
+INFO  14:02:07,528 - #14 main
+INFO  14:02:07,528 - #42 (
+INFO  14:02:07,528 - #43 )
+INFO  14:02:07,528 - #38 {
+INFO  14:02:07,528 - #39 }
+INFO  14:02:07,528 - #39 }

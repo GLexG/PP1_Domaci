@@ -10,9 +10,7 @@ import java_cup.runtime.Symbol;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
-
-import rs.ac.bg.etf.pp1.util.Log4JUtils;
-
+import rs.ac.bg.etf.pp1.util.*;
 public class MJTest {
 
 	static {
@@ -20,42 +18,35 @@ public class MJTest {
 		Log4JUtils.instance().prepareLogFile(Logger.getRootLogger());
 	}
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException{
 		Logger log = Logger.getLogger(MJTest.class);
 		Reader br = null;
 		try {
+			File sourceCode = new File("test/program.mj");
 			
-			File sourceCode = new File("test/program.mj");	
 			log.info("Compiling source file: " + sourceCode.getAbsolutePath());
 			
 			br = new BufferedReader(new FileReader(sourceCode));
 			
-			Yylex lexer = new Yylex(br);
+			Yylex lexer = new Yylex(br); // Lexer se pravi tako sto mu se zada fajl ili reader fajla
+			
 			Symbol currToken = null;
-			while ((currToken = lexer.next_token()).sym != sym.EOF) {
-				if (currToken != null && currToken.value != null)
+			while((currToken = lexer.next_token()).sym != sym.EOF)
+			{
+				if(currToken != null)
 					log.info(currToken.toString() + " " + currToken.value.toString());
 			}
-		} 
-		finally {
-			if (br != null) try { br.close(); } catch (IOException e1) { log.error(e1.getMessage(), e1); }
 		}
+		finally {
+			if(br != null)
+				try {
+					br.close();
+				}catch(IOException e)
+				{
+					log.error(e.getMessage());
+				}
+		}
+		
 	}
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

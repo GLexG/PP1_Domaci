@@ -1,4 +1,3 @@
-
 package rs.ac.bg.etf.pp1;
 import java_cup.runtime.Symbol;
 
@@ -8,12 +7,12 @@ import java_cup.runtime.Symbol;
 
 %{
 
-	//ukljucivanje informacije o poziciji tokena
+
 	private Symbol new_symbol(int type){
 		return new Symbol(type, yyline+1,yycolumn);
 	}
 	
-	//ukljucivanje informacije o poziciji tokena
+
 	private Symbol new_symbol(int type,Object value){
 		return new Symbol(type,yyline+1,yycolumn,value);
 	}
@@ -22,9 +21,11 @@ import java_cup.runtime.Symbol;
 
 %}
 
+
 %cup
 %line
 %column
+
 
 %xstate COMMENT
 
@@ -36,7 +37,7 @@ return new_symbol(sym.eof)
 
 %%
 
-""		{ }	
+" "		{ }	
 "\b"	{ }
 "\t"	{ }
 "\r\n"	{ }
